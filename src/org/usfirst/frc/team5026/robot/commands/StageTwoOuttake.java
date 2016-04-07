@@ -18,7 +18,7 @@ public class StageTwoOuttake extends Command {
     }
 
     protected boolean isFinished() {
-        return true;
+        return false; // TESTED
     }
 
     protected void end() {

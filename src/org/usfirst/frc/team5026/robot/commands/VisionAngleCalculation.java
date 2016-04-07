@@ -20,11 +20,9 @@ public class VisionAngleCalculation extends Command {
     }
 
     protected void execute() {
-    	System.out.println("go");
     	Robot.rotate.offsetFromContours();
     	SmartDashboard.putNumber("offsetAngle", Robot.rotate.offsetAngle);
     	SmartDashboard.putNumber("Current Angle", Robot.rotate.getGyro());
-    	System.out.println("RED LIGHT");
     }
 
     protected boolean isFinished() {

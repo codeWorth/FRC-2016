@@ -9,6 +9,7 @@ import org.usfirst.frc.team5026.robot.subsystems.Drive;
 import org.usfirst.frc.team5026.robot.subsystems.IntakeArm;
 import org.usfirst.frc.team5026.robot.subsystems.RotationAlign;
 import org.usfirst.frc.team5026.robot.subsystems.Shooter;
+import org.usfirst.frc.team5026.robot.subsystems.ShooterPistons;
 import org.usfirst.frc.team5026.robot.subsystems.StageTwo;
 
 import edu.wpi.first.wpilibj.CANTalon.FeedbackDevice;
@@ -38,6 +39,7 @@ public class Robot extends IterativeRobot {
 	public static IntakeArm intakeArm;
 	public static StageTwo stageTwo;
 	public static Shooter shooter;
+	public static ShooterPistons shooterPistons;
 	public static RotationAlign rotate;
 
     Command autonomousCommand;
@@ -237,6 +239,7 @@ public class Robot extends IterativeRobot {
 		intakeArm = new IntakeArm();
 		stageTwo = new StageTwo();
 		shooter = new Shooter(lookupU, lookupL);
+		shooterPistons = new ShooterPistons();
 		setupTwoGroup(hardware.lowerShooterGroup, true, false);
 		setupTwoGroup(hardware.upperShooterGroup, true, true);
 		rotate = new RotationAlign();
@@ -247,6 +250,7 @@ public class Robot extends IterativeRobot {
         autonomousChooser.addDefault("Do Nothing", new DoNothingAutonomous());
         autonomousChooser.addObject("Cross Low Bar", new CrossLowBarAutonomous());
         autonomousChooser.addObject("Spy Box Shot", new SpyBotAutonomous());
+        autonomousChooser.addObject("DO NOTHING 2", new DoNothingAutonomous());
         SmartDashboard.putData("Autonomous Selector", autonomousChooser);
         
     	for (int i = 0; i < lookupU.length; i++) {
@@ -288,6 +292,7 @@ public class Robot extends IterativeRobot {
 	 * or additional comparisons to the switch structure below with additional strings & commands.
 	 */
     public void autonomousInit() {
+    	System.out.println(autonomousChooser.getSelected());
         autonomousCommand = (Command) autonomousChooser.getSelected();
 		if (autonomousCommand != null) autonomousCommand.start();
     }

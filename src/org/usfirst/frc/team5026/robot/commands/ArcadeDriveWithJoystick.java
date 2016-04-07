@@ -25,11 +25,12 @@ public class ArcadeDriveWithJoystick extends Command {
     }
 
     protected void execute() {
-    	Robot.drive.useArcadeDrive(-joystick.getYAxis(), -joystick.getXAxis());
+    	Robot.drive.useArcadeDrive(-joystick.getYAxis(), joystick.getXAxis());
     	SmartDashboard.putNumber("X", -joystick.getXAxis());
     	SmartDashboard.putNumber("Y", joystick.getYAxis());
     	SmartDashboard.putNumber("X Joystick" , joystick.getX());
     	SmartDashboard.putNumber("Y Joystick", joystick.getY());
+    	SmartDashboard.putBoolean("Banner", Robot.stageTwo.hasBall());
     }
 
     protected boolean isFinished() {

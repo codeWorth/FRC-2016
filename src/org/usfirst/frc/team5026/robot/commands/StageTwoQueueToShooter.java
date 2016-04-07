@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class StageTwoQueueToShooter extends Command {
 
 	private Timer timer = new Timer();
-	private double seconds = 0.5;
+	private double seconds = 1; // Change for new stage2
 	
     public StageTwoQueueToShooter() {
         requires(Robot.stageTwo);
@@ -23,7 +23,7 @@ public class StageTwoQueueToShooter extends Command {
     }
 
     protected void execute() {
-    	Robot.stageTwo.intakeBall();
+    	Robot.stageTwo.intakeShooter();
     }
 
     protected boolean isFinished() {

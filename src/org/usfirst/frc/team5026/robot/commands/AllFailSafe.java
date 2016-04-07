@@ -4,17 +4,23 @@ import org.usfirst.frc.team5026.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class ShooterPistonsLower extends Command {
+/**
+ * To Interrupt ALL commands with these subsystems, a failsafe of sorts UNTESTED
+ */
+public class AllFailSafe extends Command {
 
-    public ShooterPistonsLower() {
-    	requires(Robot.shooterPistons);
+    public AllFailSafe() {
+        requires(Robot.shooter);
+        requires(Robot.intakeArm);
+        requires(Robot.rotate);
+        requires(Robot.stageTwo);
+        //requires(Robot.shooterPistons);
     }
 
     protected void initialize() {
     }
 
     protected void execute() {
-    	Robot.shooterPistons.lowerShooter();
     }
 
     protected boolean isFinished() {

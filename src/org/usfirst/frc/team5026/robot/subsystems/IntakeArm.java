@@ -2,6 +2,7 @@ package org.usfirst.frc.team5026.robot.subsystems;
 
 import org.usfirst.frc.team5026.robot.Robot;
 import org.usfirst.frc.team5026.robot.commands.IntakeArmLower;
+import org.usfirst.frc.team5026.robot.commands.IntakeArmRaise;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
@@ -43,7 +44,7 @@ public class IntakeArm extends Subsystem {
 	}
 
     public void initDefaultCommand() {
-    	setDefaultCommand(new IntakeArmLower());
+    	setDefaultCommand(new IntakeArmRaise());
     }
 }
 

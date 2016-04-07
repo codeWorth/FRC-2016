@@ -24,7 +24,8 @@ public class Drive extends Subsystem {
 	public Drive() {
 		joystick = Robot.oi.getDriveJoystick();
 		turnJoystick = Robot.oi.getTurnJoystick();
-		drive = new RobotDrive(new Talon(1), new Talon(0)); // hardware.leftDrive, hardware.rightDrive new Talon(1), new Talon(0));
+		hardware = Robot.hardware;
+		drive = new RobotDrive(hardware.leftDrive, hardware.rightDrive); // hardware.leftDrive, hardware.rightDrive new Talon(1), new Talon(0));
 	}
 	
 	/**

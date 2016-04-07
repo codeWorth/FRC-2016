@@ -18,7 +18,7 @@ public class IntakeRollerSpinOut extends Command {
     }
 
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     protected void end() {
@@ -26,5 +26,6 @@ public class IntakeRollerSpinOut extends Command {
     }
 
     protected void interrupted() {
+    	end();
     }
 }

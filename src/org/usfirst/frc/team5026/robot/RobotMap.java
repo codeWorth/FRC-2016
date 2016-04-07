@@ -17,7 +17,7 @@ public class RobotMap {
 	public static final int RIGHT_DRIVE_MOTOR_3 = 7;
 	
 	// Intake Motor (Talon SR)
-	public static final int INTAKE_ROLLER_MOTOR = 8; //0, 8
+	public static final int INTAKE_ROLLER_MOTOR = 0; //0, 8
 	
 	// Stage Two Motor (Talon SRX)
 	public static final int STAGE_TWO_MOTOR = 3; //3, 1

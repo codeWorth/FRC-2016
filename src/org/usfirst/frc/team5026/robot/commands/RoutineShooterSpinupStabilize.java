@@ -10,7 +10,6 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class RoutineShooterSpinupStabilize extends CommandGroup {
     
     public RoutineShooterSpinupStabilize() {
-    	addSequential(new ShooterShootRPM(Robot.rpmUpperShooter, Robot.rpmLowerShooter));
-        addSequential(new ShooterWaitForStabilize());
+        addSequential(new ShooterWaitForStabilize(Robot.rpmUpperShooter, Robot.rpmLowerShooter));
     }
 }

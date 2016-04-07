@@ -22,6 +22,7 @@ public class RotationAlign extends Subsystem {
 	public double distance;
 	public double kDegrees = 0.04;
 	NetworkTable table;
+	
 	public RotationAlign () {
 		NetworkTable.setServerMode();
 	}

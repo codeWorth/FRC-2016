@@ -29,12 +29,19 @@ public class ShooterWaitForStabilize extends Command {
 	private double upperRange;
 	private double lowerRange;
 
-    public ShooterWaitForStabilize() {
+	private int upperRPM;
+	private int lowerRPM;
+	
+    public ShooterWaitForStabilize(int upperRPM, int lowerRPM) {
     	requires(Robot.shooter);
+    	this.upperRPM = upperRPM;
+    	this.lowerRPM = lowerRPM;
     }
 
     protected void initialize() {
     	finished = false;
+    	
+    	Robot.shooter.rpms(upperRPM, lowerRPM);
     	
     	// Conversion from rpm to ticks
     	upperRange = Math.abs(Robot.shooter.upperRPM * Constants.SHOOTER_TOLERANCE * 4096 / 600);
@@ -45,6 +52,7 @@ public class ShooterWaitForStabilize extends Command {
     	
     	lastLowerExponentialError = 22000;
     	currentLowerExponentialError = 22000;
+    	
     }
 
     protected void execute() {
@@ -73,11 +81,16 @@ public class ShooterWaitForStabilize extends Command {
     }
 
     protected void end() {
-    	Robot.shooter.slowStop();
     }
 
     protected void interrupted() { // Need to test
-    	end();
+    	System.out.println("INTERRUPTED WAIT FOR");
+    	if (Robot.oi.boardButton1.get()) {
+    		// DONT STOP
+    		return;
+    	}
+    	System.out.println("ACTUAL STOP");
+    	Robot.shooter.slowStop();
     	finished = true;
     	Scheduler.getInstance().removeAll();
     }

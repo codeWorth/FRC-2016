@@ -25,6 +25,7 @@ public class Hardware {
 	public DoubleSolenoid shifterSolenoid;
 	public DoubleSolenoid shooterSolenoid;
 	public DoubleSolenoid intakeSolenoid;
+	public DoubleSolenoid compressorSolenoid;
 	
 	public ShooterMotorGroup lowerShooterGroup;
 	public ShooterMotorGroup upperShooterGroup;
@@ -38,12 +39,13 @@ public class Hardware {
 	
 	public Hardware() {
 		leftDrive = new DriveMotorGroup(new Talon(RobotMap.LEFT_DRIVE_MOTOR_1), new Talon(RobotMap.LEFT_DRIVE_MOTOR_2), new Talon(RobotMap.LEFT_DRIVE_MOTOR_3), true);
-		rightDrive = new DriveMotorGroup(new Talon(RobotMap.RIGHT_DRIVE_MOTOR_1), new Talon(RobotMap.RIGHT_DRIVE_MOTOR_2), new Talon(RobotMap.RIGHT_DRIVE_MOTOR_3), false);
+		rightDrive = new DriveMotorGroup(new Talon(RobotMap.RIGHT_DRIVE_MOTOR_1), new Talon(RobotMap.RIGHT_DRIVE_MOTOR_2), new Talon(RobotMap.RIGHT_DRIVE_MOTOR_3), true);
 
-		shifterSolenoid = new DoubleSolenoid(RobotMap.SHIFT_SOLENOID_FORWARD_CHANNEL, RobotMap.SHIFT_SOLENOID_REVERSE_CHANNEL); 
-		shooterSolenoid = new DoubleSolenoid(RobotMap.SHOOTER_SOLENOID_FORWARD_CHANNEL, RobotMap.SHOOTER_SOLENOID_REVERSE_CHANNEL);
-		intakeSolenoid = new DoubleSolenoid(RobotMap.INTAKE_SOLENOID_FORWARD_CHANNEL, RobotMap.INTAKE_SOLENOID_REVERSE_CHANNEL);
-
+		shifterSolenoid = new DoubleSolenoid(1, RobotMap.SHIFT_SOLENOID_FORWARD_CHANNEL, RobotMap.SHIFT_SOLENOID_REVERSE_CHANNEL); 
+		shooterSolenoid = new DoubleSolenoid(1, RobotMap.SHOOTER_SOLENOID_FORWARD_CHANNEL, RobotMap.SHOOTER_SOLENOID_REVERSE_CHANNEL);
+		intakeSolenoid = new DoubleSolenoid(1, RobotMap.INTAKE_SOLENOID_FORWARD_CHANNEL, RobotMap.INTAKE_SOLENOID_REVERSE_CHANNEL);
+		compressorSolenoid = new DoubleSolenoid(2, 0, 1);
+		
 		lowerShooterGroup = new ShooterMotorGroup(new CANTalon(RobotMap.LOWER_SHOOTER_MOTOR_1), new CANTalon(RobotMap.LOWER_SHOOTER_MOTOR_2));
 		upperShooterGroup = new ShooterMotorGroup(new CANTalon(RobotMap.UPPER_SHOOTER_MOTOR_1), new CANTalon(RobotMap.UPPER_SHOOTER_MOTOR_2));
 

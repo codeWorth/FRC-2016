@@ -20,6 +20,7 @@ public class ShooterSlowStop extends Command {
     protected void execute() {
     	Robot.shooter.slowStop();
     	Scheduler.getInstance().removeAll();
+    	System.out.println("DONE");
     }
     
     protected boolean isFinished() {

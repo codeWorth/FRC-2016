@@ -22,7 +22,7 @@ public class StageTwoIntake extends Command {
     }
 
     protected boolean isFinished() {
-        return Robot.stageTwo.hasBall();
+        return Robot.stageTwo.hasBall(); //TEST MEEEEE
     }
 
     protected void end() {

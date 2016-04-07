@@ -21,11 +21,14 @@ public class StageTwo extends Subsystem {
 	}
 	
 	public void intakeBall() {
-		stageTwoMotor.set(0.40);
+		stageTwoMotor.set(-0.5);
+	}
+	public void intakeShooter() {
+		stageTwoMotor.set(-1);
 	}
 	
 	public void outtakeBall() {
-		stageTwoMotor.set(-0.40);
+		stageTwoMotor.set(0.5);
 	}
 	
 	public void stopMotors() {

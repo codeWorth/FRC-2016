@@ -13,7 +13,7 @@ public class RoutineAutoAlign extends CommandGroup {
     	double speed = 0.3;
     	addSequential(new VisionAngleCalculation());
     	//Robot.rotate.offsetAngle = 30;
-        //addSequential(new VisionAngleRotation(speed));
-    	addSequential(new VisionAngleCoarseRotation());
+        addSequential(new VisionAngleRotation(speed));
+    	//addSequential(new VisionAngleCoarseRotation()); //Without Gyro
     }
 }

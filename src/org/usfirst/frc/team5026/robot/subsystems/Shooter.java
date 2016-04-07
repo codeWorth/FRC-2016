@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Shooter extends Subsystem {
     
-	private DoubleSolenoid shooterSolenoid;
+	
 	private ShooterMotorGroup lowerShooterGroup;
 	private ShooterMotorGroup upperShooterGroup;
 	
@@ -39,7 +39,6 @@ public class Shooter extends Subsystem {
 	private String sb = "";
 	
 	public Shooter(int[] lookupListUpper, int[] lookupListLower) {
-		shooterSolenoid = Robot.hardware.shooterSolenoid;
 		lowerShooterGroup = Robot.hardware.lowerShooterGroup;
 		upperShooterGroup = Robot.hardware.upperShooterGroup;
 		
@@ -80,7 +79,7 @@ public class Shooter extends Subsystem {
 	
 	public void stop() {
 		lowerShooterGroup.motor1.set(0);
-		upperShooterGroup.motor2.set(0);
+		upperShooterGroup.motor1.set(0);
 	}
 	
 	public void distance(double distanceToTargetFeet) {
@@ -167,16 +166,10 @@ public class Shooter extends Subsystem {
     	}
 	}
 	
-	public void raiseShooter() {
-		shooterSolenoid.set(Value.kForward);
-	}
 	
-	public void lowerShooter() {
-		shooterSolenoid.set(Value.kReverse);
-	}
 
     public void initDefaultCommand() {
-    	setDefaultCommand(new ShooterPistonsLower());
+    	
     }
 }
 

@@ -31,6 +31,7 @@ public class ShooterWaitForButton extends Command {
     	// Failsafe
     	if (Robot.oi.boardButton4.get()) {
     		Scheduler.getInstance().removeAll();
+    		System.out.println("INTERRUPTED BUTTON");
     		finished = true;
     	}
     }
@@ -43,6 +44,7 @@ public class ShooterWaitForButton extends Command {
     }
 
     protected void interrupted() { // Need to test
+    	System.out.println("INTERRUPTED BUTTON WAIT");
     	Scheduler.getInstance().removeAll();
     	finished = true;
     }

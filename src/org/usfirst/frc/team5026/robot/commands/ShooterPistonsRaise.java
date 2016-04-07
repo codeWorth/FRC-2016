@@ -7,18 +7,18 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ShooterPistonsRaise extends Command {
 
     public ShooterPistonsRaise() {
-    	requires(Robot.shooter);
+    	requires(Robot.shooterPistons);
     }
 
     protected void initialize() {
     }
 
     protected void execute() {
-    	Robot.shooter.raiseShooter();
+    	Robot.shooterPistons.raiseShooter();
     }
 
     protected boolean isFinished() {
-        return true;
+        return true; // TEST MEEEE
     }
 
     protected void end() {

@@ -27,6 +27,7 @@ public class VisionAngleRotation extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	System.out.println("Turning until Gyro Angle = " + Robot.rotate.offsetAngle);
     	SmartDashboard.putNumber("offsetAngle", Robot.rotate.offsetAngle);
     	SmartDashboard.putNumber("Current Angle", Robot.rotate.getGyro());
     	if (Robot.rotate.offsetAngle - Robot.rotate.getGyro() < 0) {
@@ -44,6 +45,12 @@ public class VisionAngleRotation extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	if (Robot.oi.boardButton4.get()) {
+    		System.out.println("CANCELLED!");
+    	}
+    	else {
+    		System.out.println("COMPLETE! " + (Robot.rotate.offsetAngle - Robot.rotate.getGyro()) + " < " + Constants.ANGLE_THRESHOLD);
+    	}
     	Robot.drive.stopDriveMotors();
     }
 
