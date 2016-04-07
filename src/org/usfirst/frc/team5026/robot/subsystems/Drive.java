@@ -41,8 +41,7 @@ public class Drive extends Subsystem {
 	}
     
 	public void setLeftRightMotors(double leftMotors, double rightMotors) {
-		drive.setLeftRightMotorOutputs(leftMotors, rightMotors);
-		System.out.println(leftMotors + ", " + rightMotors);
+		drive.setLeftRightMotorOutputs(leftMotors, rightMotors);	
 	}
 	
 	public void stopDriveMotors() {

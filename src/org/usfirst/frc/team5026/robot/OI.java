@@ -1,6 +1,8 @@
 package org.usfirst.frc.team5026.robot;
 
 import org.usfirst.frc.team5026.lib.PantherJoystick;
+import org.usfirst.frc.team5026.robot.commands.AllFailSafe;
+import org.usfirst.frc.team5026.robot.commands.DriveRotateThetaWithGyro;
 import org.usfirst.frc.team5026.robot.commands.DriveTurnDegrees;
 import org.usfirst.frc.team5026.robot.commands.IntakeArmLower;
 import org.usfirst.frc.team5026.robot.commands.IntakeRollerSpinOut;
@@ -8,7 +10,6 @@ import org.usfirst.frc.team5026.robot.commands.RoutineAutoAlign;
 import org.usfirst.frc.team5026.robot.commands.RoutineIntakeBall;
 import org.usfirst.frc.team5026.robot.commands.RoutineShootWithJoystick;
 import org.usfirst.frc.team5026.robot.commands.ShooterPistonsRaise;
-import org.usfirst.frc.team5026.robot.commands.ShooterSlowStop;
 import org.usfirst.frc.team5026.robot.commands.StageTwoOuttake;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -97,14 +98,15 @@ public class OI {
 		boardButton1.whenPressed(new RoutineShootWithJoystick());
 		//boardButton2.whenPressed(new RoutineBatterShot());
 		//boardButton2.whenPressed(new DriveTurnDegrees(90));
+		boardButton2.whenPressed(new DriveRotateThetaWithGyro(15));
 		boardButton3.whenPressed(new RoutineAutoAlign());
-		boardButton4.whenPressed(new ShooterSlowStop()); //Add FailSafe
+		boardButton4.whenPressed(new AllFailSafe()); //Add FailSafe
 		boardButton5.whenPressed(new RoutineIntakeBall());
 		boardButton6.whileHeld(new IntakeRollerSpinOut());
 		boardButton7.whileHeld(new StageTwoOuttake());
 		boardButton8.whenPressed(new DriveTurnDegrees(-45));
 		boardButton9.whenPressed(new DriveTurnDegrees(45));
-		boardSwitch10.whileHeld(new IntakeArmLower());
+		boardSwitch10.whileHeld(new IntakeArmRaise());
 		boardSwitch11.whileHeld(new ShooterPistonsRaise());
 		//boardSwitch12.whenPressed(new AIRPLANE());
 		//boardSwitch13.whenPressed(new AIRPLANE());

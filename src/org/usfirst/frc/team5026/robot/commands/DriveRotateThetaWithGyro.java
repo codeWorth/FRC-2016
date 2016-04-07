@@ -9,38 +9,38 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class VisionAngleRotation extends Command {
+public class DriveRotateThetaWithGyro extends Command {
 
-	double speed;
+	private double degrees;
+	private double speed = 0.3;
 	
-    public VisionAngleRotation(double speed) {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    	requires(Robot.rotate);
-    	requires(Robot.drive);
-    	this.speed = speed;
+    public DriveRotateThetaWithGyro(double degrees) {
+        requires(Robot.drive);
+        requires(Robot.rotate);
+        this.degrees = degrees;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.rotate.align();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	System.out.println("Turning until Gyro Angle = " + Robot.rotate.offsetAngle);
+    	System.out.println("Turning until Gyro Angle = " + degrees);
     	SmartDashboard.putNumber("offsetAngle", Robot.rotate.offsetAngle);
     	SmartDashboard.putNumber("Current Angle", Robot.rotate.getGyro());
     	if (Robot.rotate.offsetAngle - Robot.rotate.getGyro() < 0) {
-    		Robot.drive.setLeftRightMotors(speed, -speed);
-    	} else {
     		Robot.drive.setLeftRightMotors(-speed, speed);
+    	} else {
+    		Robot.drive.setLeftRightMotors(speed, -speed);
     	}
     	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (Math.abs(Robot.rotate.offsetAngle - Robot.rotate.getGyro()) < Constants.ANGLE_THRESHOLD) || Robot.oi.boardButton4.get();
+    	return (Math.abs(degrees - Robot.rotate.getGyro()) < Constants.ANGLE_THRESHOLD);
     }
 
     // Called once after isFinished returns true
@@ -49,15 +49,14 @@ public class VisionAngleRotation extends Command {
     		System.out.println("CANCELLED!");
     	}
     	else {
-    		System.out.println("COMPLETE! " + (Robot.rotate.offsetAngle - Robot.rotate.getGyro()) + " < " + Constants.ANGLE_THRESHOLD);
+    		System.out.println("COMPLETE! " + (degrees - Robot.rotate.getGyro()) + " < " + Constants.ANGLE_THRESHOLD);
     	}
     	Robot.drive.stopDriveMotors();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
-    protected void interrupted() { // add interrupted for button presses
+    protected void interrupted() {
     	end();
     }
 }
-

@@ -16,7 +16,9 @@ public class VisionAngleCalculation extends Command {
     }
 
     protected void initialize() {
+    	System.out.println("GYRO CALIBRATION START");
     	Robot.rotate.align();
+    	System.out.println("GYRO CALIBRATED");
     }
 
     protected void execute() {

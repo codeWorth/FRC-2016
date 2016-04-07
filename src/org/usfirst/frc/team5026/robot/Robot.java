@@ -128,6 +128,8 @@ public class Robot extends IterativeRobot {
     	group.motor2.changeControlMode(TalonControlMode.Follower);
     	group.motor2.reverseOutput(false);
     	group.motor2.set(group.motor1.getDeviceID());
+    	
+    	group.motor1.disable();
     }
 	
 	private double distanceFromY(double yCenter) {

@@ -61,7 +61,7 @@ public class RotationAlign extends Subsystem {
     }
     
     public void align() {
-    	Robot.hardware.gyro.calibrate();
+    	Robot.hardware.gyro.reset();
     }
     
     public double getGyro() {

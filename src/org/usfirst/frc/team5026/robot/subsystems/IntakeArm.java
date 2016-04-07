@@ -44,7 +44,7 @@ public class IntakeArm extends Subsystem {
 	}
 
     public void initDefaultCommand() {
-    	setDefaultCommand(new IntakeArmRaise());
+    	setDefaultCommand(new IntakeArmLower());
     }
 }
 

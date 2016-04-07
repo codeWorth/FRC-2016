@@ -23,7 +23,6 @@ public class VisionAngleCoarseRotation extends Command {
     }
 
     protected void initialize() {
-    	
     	Robot.drive.stopDriveMotors();
     	seconds = Math.abs(Robot.rotate.offsetAngle) * Constants.SECONDS_PER_ANGLE;
     	negative = Math.abs(Robot.rotate.offsetAngle) / Robot.rotate.offsetAngle;
