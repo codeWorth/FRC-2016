@@ -10,14 +10,14 @@ import edu.wpi.first.wpilibj.command.Command;
 public class IntakeRollerStop extends Command {
 
     public IntakeRollerStop() {
-    	requires(Robot.intakeArm);
+    	requires(Robot.intakeMotors);
     }
 
     protected void initialize() {
     }
 
     protected void execute() {
-    	Robot.intakeArm.stopIntake();
+    	Robot.intakeMotors.stopIntake();
     }
 
     protected boolean isFinished() {

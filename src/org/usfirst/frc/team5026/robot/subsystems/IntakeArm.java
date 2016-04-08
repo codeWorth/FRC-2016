@@ -16,11 +16,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class IntakeArm extends Subsystem {
     
 	private DoubleSolenoid intakeArmSolenoid;
-	private Talon rollerMotor;
 	
 	public IntakeArm() {
 		intakeArmSolenoid = Robot.hardware.intakeSolenoid;
-		rollerMotor = Robot.hardware.intakeMotor;
+		
 	}
 	
 	public void extendIntakeArm() {
@@ -31,17 +30,7 @@ public class IntakeArm extends Subsystem {
 		intakeArmSolenoid.set(Value.kReverse);
 	}
 	
-	public void intakeBall() {
-		rollerMotor.set(-0.9);
-	}
 	
-	public void outtakeBall() {
-		rollerMotor.set(0.9);
-	}
-	
-	public void stopIntake() {
-		rollerMotor.set(0.0);
-	}
 
     public void initDefaultCommand() {
     	setDefaultCommand(new IntakeArmRaise());

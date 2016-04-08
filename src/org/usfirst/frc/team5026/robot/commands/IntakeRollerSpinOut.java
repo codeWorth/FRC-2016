@@ -7,14 +7,14 @@ import edu.wpi.first.wpilibj.command.Command;
 public class IntakeRollerSpinOut extends Command {
 
     public IntakeRollerSpinOut() {
-    	requires(Robot.intakeArm);
+    	requires(Robot.intakeMotors);
     }
 
     protected void initialize() {
     }
 
     protected void execute() {
-    	Robot.intakeArm.outtakeBall();
+    	Robot.intakeMotors.outtakeBall();
     }
 
     protected boolean isFinished() {
@@ -22,7 +22,7 @@ public class IntakeRollerSpinOut extends Command {
     }
 
     protected void end() {
-    	Robot.intakeArm.stopIntake();
+    	Robot.intakeMotors.stopIntake();
     }
 
     protected void interrupted() {

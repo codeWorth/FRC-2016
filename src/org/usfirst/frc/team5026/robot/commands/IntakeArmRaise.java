@@ -17,7 +17,7 @@ public class IntakeArmRaise extends Command {
     }
 
     protected void execute() {
-    	Robot.intakeArm.retractIntakeArm();
+    	Robot.intakeArm.extendIntakeArm();
     }
 
     protected boolean isFinished() {

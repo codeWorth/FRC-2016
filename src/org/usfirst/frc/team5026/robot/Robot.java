@@ -7,6 +7,7 @@ import org.usfirst.frc.team5026.robot.autonomous.DoNothingAutonomous;
 import org.usfirst.frc.team5026.robot.autonomous.SpyBotAutonomous;
 import org.usfirst.frc.team5026.robot.subsystems.Drive;
 import org.usfirst.frc.team5026.robot.subsystems.IntakeArm;
+import org.usfirst.frc.team5026.robot.subsystems.IntakeMotors;
 import org.usfirst.frc.team5026.robot.subsystems.RotationAlign;
 import org.usfirst.frc.team5026.robot.subsystems.Shooter;
 import org.usfirst.frc.team5026.robot.subsystems.ShooterPistons;
@@ -37,6 +38,7 @@ public class Robot extends IterativeRobot {
 	public static Hardware hardware;
 	public static Drive drive;
 	public static IntakeArm intakeArm;
+	public static IntakeMotors intakeMotors;
 	public static StageTwo stageTwo;
 	public static Shooter shooter;
 	public static ShooterPistons shooterPistons;
@@ -62,8 +64,10 @@ public class Robot extends IterativeRobot {
 	public int shooterIsNegative = -1;
 	public static int rpmUpperBatter = -3200;
 	public static int rpmLowerBatter = -4700;
-	public static int rpmUpperShooter = -5000; //4800
-	public static int rpmLowerShooter = -4000; //3200
+	public static int rpmUpperShooter = -4800; //4800
+	public static int rpmLowerShooter = -3700; //3200
+	public static int rpmUpperShooterAuto = -5000;
+	public static int rpmLowerShooterAuto = -4000;
 	NetworkTable table;
 	
 	double[] defaultValue = new double[0];
@@ -239,6 +243,7 @@ public class Robot extends IterativeRobot {
 		hardware = new Hardware();
 		drive = new Drive();
 		intakeArm = new IntakeArm();
+		intakeMotors = new IntakeMotors();
 		stageTwo = new StageTwo();
 		shooter = new Shooter(lookupU, lookupL);
 		shooterPistons = new ShooterPistons();

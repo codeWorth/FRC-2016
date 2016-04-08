@@ -5,6 +5,7 @@ import org.usfirst.frc.team5026.robot.Robot;
 import org.usfirst.frc.team5026.robot.commands.ShooterPistonsLower;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
@@ -127,11 +128,18 @@ public class Shooter extends Subsystem {
 	}
 	
 	private void lowerPid() {
-		lowerMotorOutput = lowerShooterGroup.motor1.getOutputVoltage() / lowerShooterGroup.motor1.getBusVoltage();
-		lowerShooterGroup.motor1.set(lowerRPM);
-		prints(false);
+		// FAILSAFE
+		if (lowerShooterGroup.motor1.getSpeed() == 0) {
+			lowerMotorOutput = lowerShooterGroup.motor1.getOutputCurrent() / lowerShooterGroup.motor1.getBusVoltage();
+			lowerShooterGroup.motor1.changeControlMode(TalonControlMode.PercentVbus);
+			lowerShooterGroup.motor1.set(0.75);
+		} else {
+			lowerMotorOutput = lowerShooterGroup.motor1.getOutputVoltage() / lowerShooterGroup.motor1.getBusVoltage();
+			lowerShooterGroup.motor1.changeControlMode(TalonControlMode.Speed);
+			lowerShooterGroup.motor1.set(lowerRPM);
+			prints(false);
+		}
 	}
-	
 	public void slowStop() {
 		upperShooterGroup.motor1.disable();
 		lowerShooterGroup.motor1.disable();

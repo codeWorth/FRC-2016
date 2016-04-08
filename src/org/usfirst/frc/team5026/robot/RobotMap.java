@@ -60,4 +60,10 @@ public class RobotMap {
 	public static final int BOARD_SWITCH_11 = 11;
 	public static final int BOARD_SWITCH_12 = 12;
 	public static final int BOARD_SWITCH_13 = 13;
+	
+	// Drive button mappings
+	public static final int DRIVE_BUTTON_6 = 6;
+	public static final int DRIVE_BUTTON_7 = 7;
+	public static final int DRIVE_BUTTON_10 = 10;
+	public static final int DRIVE_BUTTON_11 = 11;
 }

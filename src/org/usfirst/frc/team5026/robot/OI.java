@@ -25,6 +25,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class OI {
 	
 	private PantherJoystick driveJoystick;
+	
+	public Button driveButton6;
+	public Button driveButton7;
+	public Button driveButton10;
+	public Button driveButton11;
+	
 	private PantherJoystick turnJoystick; // FOR TESTING PURPOSES
 	
 	private Joystick buttonBoard;
@@ -73,7 +79,10 @@ public class OI {
 	
 	// Construct and add commands to buttons
 	private void initDriveJoystick() {
-		
+		driveButton6 = new JoystickButton(driveJoystick, RobotMap.DRIVE_BUTTON_6);
+		driveButton7 = new JoystickButton(driveJoystick, RobotMap.DRIVE_BUTTON_7);
+		driveButton10 = new JoystickButton(driveJoystick, RobotMap.DRIVE_BUTTON_10);
+		driveButton11 = new JoystickButton(driveJoystick, RobotMap.DRIVE_BUTTON_11);
 	}
 	
 	private void initButtonBoard() {
@@ -110,6 +119,8 @@ public class OI {
 		boardSwitch11.whileHeld(new ShooterPistonsRaise());
 		//boardSwitch12.whenPressed(new AIRPLANE());
 		//boardSwitch13.whenPressed(new AIRPLANE());
+		// Driver Joysticks
+		// ADD BUTTONS FOR SHOOTER RPMS
 	}
 }
 

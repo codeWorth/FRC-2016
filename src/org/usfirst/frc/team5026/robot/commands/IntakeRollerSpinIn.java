@@ -7,14 +7,14 @@ import edu.wpi.first.wpilibj.command.Command;
 public class IntakeRollerSpinIn extends Command {
 
     public IntakeRollerSpinIn() {
-    	requires(Robot.intakeArm);
+    	requires(Robot.intakeMotors);
     }
 
     protected void initialize() {
     }
 
     protected void execute() {
-    	Robot.intakeArm.intakeBall();
+    	Robot.intakeMotors.intakeBall();
     }
 
     protected boolean isFinished() {
