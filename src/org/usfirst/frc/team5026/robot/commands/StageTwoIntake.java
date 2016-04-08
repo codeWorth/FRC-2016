@@ -27,9 +27,11 @@ public class StageTwoIntake extends Command {
 
     protected void end() {
     	Robot.stageTwo.stopMotors();
+    	System.out.println("I ENDED!");
     }
 
     protected void interrupted() {
     	end();
+    	System.out.println("I INTERRUPTED!");
     }
 }

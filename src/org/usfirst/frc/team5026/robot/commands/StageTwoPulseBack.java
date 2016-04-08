@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class StageTwoPulseBack extends Command {
 	
-	private double seconds = 1.5; // Change for new stage 2
+	private double seconds = 0.75; // Change for new stage 2
 
     public StageTwoPulseBack() {
     	requires(Robot.stageTwo);

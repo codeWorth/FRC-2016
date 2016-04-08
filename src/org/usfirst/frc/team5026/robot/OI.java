@@ -106,7 +106,7 @@ public class OI {
 		boardButton7.whileHeld(new StageTwoOuttake());
 		boardButton8.whenPressed(new DriveTurnDegrees(-45));
 		boardButton9.whenPressed(new DriveTurnDegrees(45));
-		boardSwitch10.whileHeld(new IntakeArmRaise());
+		boardSwitch10.whileHeld(new IntakeArmLower());
 		boardSwitch11.whileHeld(new ShooterPistonsRaise());
 		//boardSwitch12.whenPressed(new AIRPLANE());
 		//boardSwitch13.whenPressed(new AIRPLANE());
