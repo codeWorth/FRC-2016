@@ -10,10 +10,13 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class RoutineAutoAlign extends CommandGroup {
     
     public RoutineAutoAlign() {
-    	double speed = 0.3;
+    	double speed = 0.2;
     	addSequential(new VisionAngleCalculation());
     	//Robot.rotate.offsetAngle = 30;
         addSequential(new VisionAngleRotation(speed));
     	//addSequential(new VisionAngleCoarseRotation()); //Without Gyro
+        
+        //addSequential(new VisionAngleCalculation());
+        //addSequential(new VisionAngleRotation(speed));
     }
 }

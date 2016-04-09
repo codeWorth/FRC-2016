@@ -107,14 +107,14 @@ public class OI {
 		boardButton1.whenPressed(new RoutineShootWithJoystick());
 		//boardButton2.whenPressed(new RoutineBatterShot());
 		//boardButton2.whenPressed(new DriveTurnDegrees(90));
-		boardButton2.whenPressed(new DriveRotateThetaWithGyro(15));
+		boardButton2.whenPressed(new DriveRotateThetaWithGyro(5));
 		boardButton3.whenPressed(new RoutineAutoAlign());
 		boardButton4.whenPressed(new AllFailSafe()); //Add FailSafe
 		boardButton5.whenPressed(new RoutineIntakeBall());
 		boardButton6.whileHeld(new IntakeRollerSpinOut());
 		boardButton7.whileHeld(new StageTwoOuttake());
-		boardButton8.whenPressed(new DriveTurnDegrees(-45));
-		boardButton9.whenPressed(new DriveTurnDegrees(45));
+		boardButton8.whenPressed(new DriveTurnDegrees(-5));
+		boardButton9.whenPressed(new DriveTurnDegrees(5));
 		boardSwitch10.whileHeld(new IntakeArmLower());
 		boardSwitch11.whileHeld(new ShooterPistonsRaise());
 		//boardSwitch12.whenPressed(new AIRPLANE());

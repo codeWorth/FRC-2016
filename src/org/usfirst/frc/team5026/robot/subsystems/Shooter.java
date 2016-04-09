@@ -129,6 +129,7 @@ public class Shooter extends Subsystem {
 	
 	private void lowerPid() {
 		// FAILSAFE
+		/*
 		if (lowerShooterGroup.motor1.getSpeed() == 0) {
 			lowerMotorOutput = lowerShooterGroup.motor1.getOutputCurrent() / lowerShooterGroup.motor1.getBusVoltage();
 			lowerShooterGroup.motor1.changeControlMode(TalonControlMode.PercentVbus);
@@ -139,6 +140,12 @@ public class Shooter extends Subsystem {
 			lowerShooterGroup.motor1.set(lowerRPM);
 			prints(false);
 		}
+		*/
+		lowerMotorOutput = lowerShooterGroup.motor1.getOutputVoltage() / lowerShooterGroup.motor1.getBusVoltage();
+		lowerShooterGroup.motor1.changeControlMode(TalonControlMode.Speed);
+		lowerShooterGroup.motor1.set(lowerRPM);
+		prints(false);
+		
 	}
 	public void slowStop() {
 		upperShooterGroup.motor1.disable();

@@ -21,6 +21,7 @@ public class AllFailSafe extends Command {
     }
 
     protected void execute() {
+    	Robot.shooter.slowStop();
     }
 
     protected boolean isFinished() {

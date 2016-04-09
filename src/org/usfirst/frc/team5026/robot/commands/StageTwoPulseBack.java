@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class StageTwoPulseBack extends Command {
 	
-	private double seconds = 0.75; // Change for new stage 2
+	private double seconds = 3; // Change for new stage 2
 
     public StageTwoPulseBack() {
     	requires(Robot.stageTwo);
@@ -21,16 +21,11 @@ public class StageTwoPulseBack extends Command {
 
     protected void execute() {
     	Robot.stageTwo.outtakeBall();
-    	double x = 0;
-    	
-    	for (int i = 0; i < seconds * 1000; i++) {
-    		x = i * i * i / (2.545 * i) + i / 72;
-    	}
-    	System.out.println(x);
+    	System.out.println("Pulse Back!");
     }
 
     protected boolean isFinished() {
-        return true;
+        return !Robot.stageTwo.hasBall();
     }
 
     protected void end() {

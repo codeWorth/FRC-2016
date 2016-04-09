@@ -1,0 +1,44 @@
+package org.usfirst.frc.team5026.robot.autonomous;
+
+import org.usfirst.frc.team5026.robot.Robot;
+import org.usfirst.frc.team5026.robot.commands.DriveFowardsForTime;
+import org.usfirst.frc.team5026.robot.commands.DriveRotateThetaWithGyro;
+import org.usfirst.frc.team5026.robot.commands.IntakeArmLower;
+import org.usfirst.frc.team5026.robot.commands.IntakeArmRaise;
+import org.usfirst.frc.team5026.robot.commands.IntakeRollerSpinIn;
+import org.usfirst.frc.team5026.robot.commands.IntakeRollerStop;
+import org.usfirst.frc.team5026.robot.commands.RoutineAutoAlign;
+import org.usfirst.frc.team5026.robot.commands.ShooterShootRPM;
+import org.usfirst.frc.team5026.robot.commands.ShooterSlowStop;
+import org.usfirst.frc.team5026.robot.commands.ShooterWaitForStabilize;
+import org.usfirst.frc.team5026.robot.commands.StageTwoIntake;
+import org.usfirst.frc.team5026.robot.commands.StageTwoPulseBack;
+import org.usfirst.frc.team5026.robot.commands.StageTwoQueueToShooter;
+
+import edu.wpi.first.wpilibj.command.CommandGroup;
+
+/**
+ *
+ */
+public class LowBarShootAutoAlignAutonomous extends CommandGroup {
+    
+    public  LowBarShootAutoAlignAutonomous() {
+        addSequential(new StageTwoIntake());
+        addSequential(new StageTwoPulseBack());
+        addSequential(new IntakeRollerSpinIn());
+        addSequential(new IntakeArmLower());
+        addSequential(new DriveFowardsForTime(3));
+        addSequential(new StageTwoIntake());
+        addSequential(new StageTwoPulseBack());
+        addSequential(new IntakeRollerStop());
+        addSequential(new IntakeArmRaise());
+        addSequential(new ShooterShootRPM(Robot.rpmUpperShooter, Robot.rpmLowerShooter)); // COMMENT ME IF I DO NOT WORK AS I SHOULD
+        addSequential(new DriveRotateThetaWithGyro(45));
+        addSequential(new RoutineAutoAlign());
+        addSequential(new RoutineAutoAlign());
+        addSequential(new RoutineAutoAlign());
+        addSequential(new ShooterWaitForStabilize(Robot.rpmUpperShooter, Robot.rpmLowerShooter));
+        addSequential(new StageTwoQueueToShooter());
+        addSequential(new ShooterSlowStop());
+    }
+}

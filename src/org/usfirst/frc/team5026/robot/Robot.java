@@ -4,6 +4,7 @@ package org.usfirst.frc.team5026.robot;
 import org.usfirst.frc.team5026.lib.ShooterMotorGroup;
 import org.usfirst.frc.team5026.robot.autonomous.CrossLowBarAutonomous;
 import org.usfirst.frc.team5026.robot.autonomous.DoNothingAutonomous;
+import org.usfirst.frc.team5026.robot.autonomous.LowBarShootAutoAlignAutonomous;
 import org.usfirst.frc.team5026.robot.autonomous.SpyBotAutonomous;
 import org.usfirst.frc.team5026.robot.subsystems.Drive;
 import org.usfirst.frc.team5026.robot.subsystems.IntakeArm;
@@ -65,9 +66,9 @@ public class Robot extends IterativeRobot {
 	public static int rpmUpperBatter = -3200;
 	public static int rpmLowerBatter = -4700;
 	public static int rpmUpperShooter = -4800; //4800
-	public static int rpmLowerShooter = -3700; //3200
-	public static int rpmUpperShooterAuto = -5000;
-	public static int rpmLowerShooterAuto = -4000;
+	public static int rpmLowerShooter = -3200; //3200
+	public static int rpmUpperShooterAuto = -4800;
+	public static int rpmLowerShooterAuto = -3200;
 	NetworkTable table;
 	
 	double[] defaultValue = new double[0];
@@ -257,6 +258,7 @@ public class Robot extends IterativeRobot {
         autonomousChooser.addDefault("Do Nothing", new DoNothingAutonomous());
         autonomousChooser.addObject("Cross Low Bar", new CrossLowBarAutonomous());
         autonomousChooser.addObject("Spy Box Shot", new SpyBotAutonomous());
+        autonomousChooser.addObject("ESSENTIALLY MULTIBALL (AUTO ALIGN + LOW BAR)", new LowBarShootAutoAlignAutonomous());
         autonomousChooser.addObject("DO NOTHING 2", new DoNothingAutonomous());
         SmartDashboard.putData("Autonomous Selector", autonomousChooser);
         

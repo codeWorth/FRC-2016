@@ -39,14 +39,14 @@ public class Constants {
 	public static final int SHOOTER_PROFILE = 0;
 	
 	// Vision values
-	public static final int Y_THRESHOLD_LOW = -16; //Need to fix this at comp.
-	public static final int Y_THRESHOLD_HIGH = 20; //Need to fix this at comp.
-	public static final int X_NOMINAL_8_FT = 322; //Need to fix this at comp.
-	public static final int Y_NOMINAL_8_FT = 138; //Need to fix this at comp.
+	public static final int Y_THRESHOLD_LOW = -14; //Need to fix this at comp.
+	public static final int Y_THRESHOLD_HIGH = 18; //Need to fix this at comp.
+	public static final int X_NOMINAL_8_FT = 333; //Need to fix this at comp.
+	public static final int Y_NOMINAL_8_FT = 110; //Need to fix this at comp.
 	public static final double NOMINAL_FEET = 8; //Need to fix this at comp.
 	
-	public static final int X_MAX_DIFFERENCE = 205; // At 30 degrees
+	public static final int X_MAX_DIFFERENCE = 178; // At 30 degrees
 	public static final double X_MAX_ANGLE = 30;
-	public static final double ANGLE_THRESHOLD = 5; //Need to fix this at comp.
+	public static final double ANGLE_THRESHOLD = 2.5; //Need to fix this at comp.
 	public static final double SECONDS_PER_ANGLE = 0.017; //Need to fix this at comp.
 }

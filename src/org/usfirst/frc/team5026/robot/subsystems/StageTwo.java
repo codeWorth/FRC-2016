@@ -28,7 +28,7 @@ public class StageTwo extends Subsystem {
 	}
 	
 	public void outtakeBall() {
-		stageTwoMotor.set(0.5);
+		stageTwoMotor.set(0.4);
 	}
 	
 	public void stopMotors() {
