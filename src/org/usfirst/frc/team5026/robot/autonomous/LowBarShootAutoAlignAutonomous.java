@@ -1,6 +1,7 @@
 package org.usfirst.frc.team5026.robot.autonomous;
 
 import org.usfirst.frc.team5026.robot.Robot;
+import org.usfirst.frc.team5026.robot.commands.DriveForwardsCarveRight;
 import org.usfirst.frc.team5026.robot.commands.DriveFowardsForTime;
 import org.usfirst.frc.team5026.robot.commands.DriveRotateThetaWithGyro;
 import org.usfirst.frc.team5026.robot.commands.IntakeArmLower;
@@ -24,16 +25,16 @@ public class LowBarShootAutoAlignAutonomous extends CommandGroup {
     
     public  LowBarShootAutoAlignAutonomous() {
         addSequential(new StageTwoIntake());
-        addSequential(new StageTwoPulseBack());
         addSequential(new IntakeRollerSpinIn());
         addSequential(new IntakeArmLower());
-        addSequential(new DriveFowardsForTime(3));
+        addSequential(new DriveForwardsCarveRight(3));
         addSequential(new StageTwoIntake());
         addSequential(new StageTwoPulseBack());
+        addSequential(new ShooterShootRPM(Robot.rpmUpperShooter, Robot.rpmLowerShooter)); // COMMENT ME IF I DO NOT WORK AS I SHOULD
         addSequential(new IntakeRollerStop());
         addSequential(new IntakeArmRaise());
-        addSequential(new ShooterShootRPM(Robot.rpmUpperShooter, Robot.rpmLowerShooter)); // COMMENT ME IF I DO NOT WORK AS I SHOULD
-        addSequential(new DriveRotateThetaWithGyro(45));
+        addSequential(new DriveRotateThetaWithGyro(40));
+        addSequential(new DriveFowardsForTime(1));
         addSequential(new RoutineAutoAlign());
         addSequential(new RoutineAutoAlign());
         addSequential(new RoutineAutoAlign());

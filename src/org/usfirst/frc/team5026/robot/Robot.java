@@ -255,10 +255,10 @@ public class Robot extends IterativeRobot {
 		NetworkTable.setServerMode();
 		
         autonomousChooser = new SendableChooser();
-        autonomousChooser.addDefault("Do Nothing", new DoNothingAutonomous());
+        autonomousChooser.addDefault("ESSENTIALLY MULTIBALL (AUTO ALIGN + LOW BAR)", new LowBarShootAutoAlignAutonomous());
+        autonomousChooser.addObject("Do Nothing", new DoNothingAutonomous());
         autonomousChooser.addObject("Cross Low Bar", new CrossLowBarAutonomous());
         autonomousChooser.addObject("Spy Box Shot", new SpyBotAutonomous());
-        autonomousChooser.addObject("ESSENTIALLY MULTIBALL (AUTO ALIGN + LOW BAR)", new LowBarShootAutoAlignAutonomous());
         autonomousChooser.addObject("DO NOTHING 2", new DoNothingAutonomous());
         SmartDashboard.putData("Autonomous Selector", autonomousChooser);
         

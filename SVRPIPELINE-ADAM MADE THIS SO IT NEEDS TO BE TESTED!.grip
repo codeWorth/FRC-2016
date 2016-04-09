@@ -5,7 +5,7 @@
       <property name="path[3]" value="C:\Users\IBM\WebDownload\LiveSnapshot\145inches.bmp"/>
       <property name="path[0]" value="C:\Users\IBM\WebDownload\LiveSnapshot\100inches.bmp"/>
       <property name="path[8]" value="C:\Users\IBM\WebDownload\LiveSnapshot\20000102_151829.bmp"/>
-      <property name="index" value="1"/>
+      <property name="index" value="2"/>
       <property name="numImages" value="9"/>
       <property name="path[5]" value="C:\Users\IBM\WebDownload\LiveSnapshot\20000102_141523.bmp"/>
       <property name="path[2]" value="C:\Users\IBM\WebDownload\LiveSnapshot\141inches.bmp"/>
@@ -109,10 +109,10 @@
         <value>400.0</value>
       </grip:Input>
       <grip:Input step="7" socket="2">
-        <value>224.0</value>
+        <value>210.0</value>
       </grip:Input>
       <grip:Input step="7" socket="3">
-        <value>0.0</value>
+        <value>11.0</value>
       </grip:Input>
       <grip:Input step="7" socket="4">
         <value>300.0</value>
@@ -191,7 +191,7 @@
     </grip:Connection>
     <grip:Connection>
       <grip:Output source="1" socket="0" previewed="false"/>
-      <grip:Input step="0" socket="0"/>
+      <grip:Input step="1" socket="0"/>
     </grip:Connection>
     <grip:Connection>
       <grip:Output step="8" socket="0" previewed="true"/>
@@ -200,10 +200,6 @@
     <grip:Connection>
       <grip:Output step="7" socket="0" previewed="true"/>
       <grip:Input step="8" socket="0"/>
-    </grip:Connection>
-    <grip:Connection>
-      <grip:Output source="0" socket="0" previewed="false"/>
-      <grip:Input step="1" socket="0"/>
     </grip:Connection>
     <grip:Connection>
       <grip:Output step="3" socket="0" previewed="true"/>
@@ -216,6 +212,10 @@
     <grip:Connection>
       <grip:Output step="2" socket="0" previewed="true"/>
       <grip:Input step="4" socket="0"/>
+    </grip:Connection>
+    <grip:Connection>
+      <grip:Output source="1" socket="0" previewed="false"/>
+      <grip:Input step="0" socket="0"/>
     </grip:Connection>
   </connections>
   <settings>

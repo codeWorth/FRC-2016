@@ -30,10 +30,10 @@ public class DriveRotateThetaWithGyro extends Command {
     	System.out.println("Turning until Gyro Angle = " + degrees);
     	SmartDashboard.putNumber("offsetAngle", Robot.rotate.offsetAngle);
     	SmartDashboard.putNumber("Current Angle", Robot.rotate.getGyro());
-    	if (Robot.rotate.offsetAngle - Robot.rotate.getGyro() < 0) {
-    		Robot.drive.setLeftRightMotors(-speed, speed);
-    	} else {
+    	if (degrees - Robot.rotate.getGyro() < 0) {
     		Robot.drive.setLeftRightMotors(speed, -speed);
+    	} else {
+    		Robot.drive.setLeftRightMotors(-speed, speed);
     	}
     	
     }
