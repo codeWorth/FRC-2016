@@ -7,11 +7,19 @@ public class AxisButton extends Button {
 	private GenericHID stick;
 	private int axisPort;
 	private double thresh;
+	private boolean moreThan = true;
 	
 	public AxisButton(GenericHID stick, int axisPort, double threshold){
 		this.stick = stick;
 		this.axisPort = axisPort;
 		this.thresh = threshold;
+	}
+	
+	public AxisButton(GenericHID stick, int axisPort, double threshold, boolean moreThan){
+		this.stick = stick;
+		this.axisPort = axisPort;
+		this.thresh = threshold;
+		this.moreThan = moreThan;
 	}
 	
 	private double getAxis(){
@@ -20,7 +28,11 @@ public class AxisButton extends Button {
 	
 	@Override
 	public boolean get() {
-		return getAxis() > thresh;
+		if (moreThan){
+			return getAxis() > thresh;
+		} else {
+			return getAxis() < thresh;
+		}
 	}
 
 }

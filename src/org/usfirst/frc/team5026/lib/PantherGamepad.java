@@ -23,14 +23,17 @@ public class PantherGamepad extends Joystick {
 	private static final int BUTTON_BUMPER_RIGHT = 6;
 	private static final int BUTTON_BACK = 7;
 	private static final int BUTTON_START = 8;
-	private static final int BUTTON_LEFT_STICK = 9;
-	private static final int BUTTON_RIGHT_STICK = 10;
+	private static final int BUTTON_LEFT_STICK = 9; //not needed?
+	private static final int BUTTON_RIGHT_STICK = 10; //not needed?
 	
 	public static final double LEFT_TRIG_THRESHOLD = 0.9;
 	public static final double RIGHT_TRIG_THRESHOLD = 0.9;
 	
 	private AxisButton leftTrigButton;
 	private AxisButton rightTrigButton;
+	
+	private AxisButton leftDPadButton;
+	private AxisButton rightDPadButton;
 	
 	public int power;
 	public double m_deadzoneX;
@@ -50,6 +53,9 @@ public class PantherGamepad extends Joystick {
 		
 		leftTrigButton = new AxisButton(this, AXIS_TRIGGER_LEFT, LEFT_TRIG_THRESHOLD);
 		rightTrigButton = new AxisButton(this, AXIS_TRIGGER_RIGHT, RIGHT_TRIG_THRESHOLD);
+		
+		leftDPadButton = new AxisButton(this, AXIS_DPAD, -0.5, false);
+		rightDPadButton = new AxisButton(this, AXIS_DPAD, 0.5, true);
 	}
 	
 	public double getLeftY(){
@@ -141,14 +147,12 @@ public class PantherGamepad extends Joystick {
 	 * WPILIB cannot access the vertical axis of the Logitech Game Controller Dpad
 	 */
 
-	public boolean getDPadLeft() {
-	  double x = getDPadX();
-	    return (x < -0.5);
+	public AxisButton getDPadLeftButton() {
+	  return leftDPadButton;
 	}
 
-	public boolean getDPadRight() {
-	  double x = getDPadX();
-	    return (x > 0.5);
+	public AxisButton getDPadRight() {
+	  return rightDPadButton;
 	}
 
 	/**

@@ -22,14 +22,14 @@ public class ShooterWaitForButton extends Command {
     }
 
     protected void execute() {
-    	if (Robot.oi.getButtonBoard().getRawButton(buttonForContinue)) {
+    	if (Robot.oi.rightTrigButton.get()) {
     		finished = true;
     	} else {
     		finished = false;
     	}
     	
     	// Failsafe
-    	if (Robot.oi.boardButton4.get()) {
+    	if (Robot.oi.leftTrigButton.get()) {
     		Scheduler.getInstance().removeAll();
     		System.out.println("INTERRUPTED BUTTON");
     		finished = true;

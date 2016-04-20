@@ -41,12 +41,12 @@ public class VisionAngleRotation extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (Math.abs(Robot.rotate.offsetAngle - Robot.rotate.getGyro()) < Constants.ANGLE_THRESHOLD) || Robot.oi.boardButton4.get();
+        return (Math.abs(Robot.rotate.offsetAngle - Robot.rotate.getGyro()) < Constants.ANGLE_THRESHOLD) || Robot.oi.leftTrigButton.get();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	if (Robot.oi.boardButton4.get()) {
+    	if (Robot.oi.leftTrigButton.get()) {
     		System.out.println("CANCELLED!");
     	}
     	else {

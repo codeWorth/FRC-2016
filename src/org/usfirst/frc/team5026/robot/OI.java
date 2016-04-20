@@ -35,6 +35,8 @@ public class OI {
 	public JoystickButton startButton;
 	public AxisButton leftTrigButton;
 	public AxisButton rightTrigButton;
+	public AxisButton leftDPadButton;
+	public AxisButton rightDPadButton;
 	
 	public OI() {
 		SmartDashboard.putString("INITS", "NONE");
@@ -67,21 +69,21 @@ public class OI {
 	
 	public void mapButtonsToCommands() {
 		// Button Board
-		boardButton1.whenPressed(new RoutineShootWithJoystick());
+		rightTrigButton.whenPressed(new RoutineShootWithJoystick()); //right trigger
 		//boardButton2.whenPressed(new RoutineBatterShot());
 		//boardButton2.whenPressed(new DriveTurnDegrees(90));
-		boardButton2.whenPressed(new DriveRotateThetaWithGyro(5));
-		boardButton3.whenPressed(new RoutineAutoAlign());
-		boardButton4.whenPressed(new AllFailSafe()); //Add FailSafe
-		boardButton5.whenPressed(new RoutineIntakeBall());
-		boardButton6.whileHeld(new IntakeRollerSpinOut());
-		boardButton7.whileHeld(new StageTwoOuttake());
-		boardButton8.whenPressed(new DriveTurnDegrees(-5));
-		boardButton9.whenPressed(new DriveTurnDegrees(5));
-		boardSwitch10.whileHeld(new IntakeArmLower());
-		boardSwitch11.whileHeld(new ShooterPistonsRaise());
-		//boardSwitch12.whenPressed(new AIRPLANE());
-		//boardSwitch13.whenPressed(new AIRPLANE());
+		//boardButton2.whenPressed(new DriveRotateThetaWithGyro(5));
+		rightBumper.whenPressed(new RoutineAutoAlign()); // right bumper
+		leftBumper.whenPressed(new AllFailSafe()); //Add FailSafe left bumper
+		leftTrigButton.whenPressed(new RoutineIntakeBall()); // left trigger
+		aButton.whileHeld(new IntakeRollerSpinOut()); // a
+		xButton.whileHeld(new StageTwoOuttake()); // x
+		leftDPadButton.whenPressed(new DriveTurnDegrees(-5)); //left d pad
+		rightDPadButton.whenPressed(new DriveTurnDegrees(5)); //right d pad
+		bButton.whileHeld(new IntakeArmLower()); //b chang to toggle (whenPressed)
+		//boardSwitch11.whileHeld(new ShooterPistonsRaise());
+		//boardSwitch12.whenPressed(new AIRPLANE()); start (pressed with back)
+		//boardSwitch13.whenPressed(new AIRPLANE()); back (pressed with start)
 		// Driver Joysticks
 		// ADD BUTTONS FOR SHOOTER RPMS
 	}
