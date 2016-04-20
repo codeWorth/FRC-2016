@@ -1,5 +1,6 @@
 package org.usfirst.frc.team5026.robot;
 
+import org.usfirst.frc.team5026.lib.AxisButton;
 import org.usfirst.frc.team5026.lib.PantherGamepad;
 import org.usfirst.frc.team5026.robot.commands.AllFailSafe;
 import org.usfirst.frc.team5026.robot.commands.DriveRotateThetaWithGyro;
@@ -12,8 +13,6 @@ import org.usfirst.frc.team5026.robot.commands.RoutineShootWithJoystick;
 import org.usfirst.frc.team5026.robot.commands.ShooterPistonsRaise;
 import org.usfirst.frc.team5026.robot.commands.StageTwoOuttake;
 
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -25,6 +24,17 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class OI {
 	
 	private PantherGamepad driveJoystick;
+	
+	public JoystickButton xButton;
+	public JoystickButton yButton;
+	public JoystickButton bButton;
+	public JoystickButton aButton;
+	public JoystickButton leftBumper;
+	public JoystickButton rightBumper;
+	public JoystickButton backButton;
+	public JoystickButton startButton;
+	public AxisButton leftTrigButton;
+	public AxisButton rightTrigButton;
 	
 	public OI() {
 		SmartDashboard.putString("INITS", "NONE");
@@ -42,7 +52,17 @@ public class OI {
 	
 	//initialize gamepad buttons
 	private void initGamepadButtons(){
+		xButton = driveJoystick.getButtonX();
+		yButton = driveJoystick.getButtonY();
+		bButton = driveJoystick.getButtonB();
+		aButton = driveJoystick.getButtonA();
+		leftBumper = driveJoystick.getLeftShoulder();
+		rightBumper = driveJoystick.getRightShoulder();
+		backButton = driveJoystick.getBackButton();
+		startButton = driveJoystick.getStartButton();
 		
+		leftTrigButton = driveJoystick.getLeftTrig();
+		rightTrigButton = driveJoystick.getRightTrig();
 	}
 	
 	public void mapButtonsToCommands() {

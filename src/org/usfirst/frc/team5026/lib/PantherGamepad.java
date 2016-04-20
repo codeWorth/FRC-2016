@@ -29,6 +29,9 @@ public class PantherGamepad extends Joystick {
 	public static final double LEFT_TRIG_THRESHOLD = 0.9;
 	public static final double RIGHT_TRIG_THRESHOLD = 0.9;
 	
+	private AxisButton leftTrigButton;
+	private AxisButton rightTrigButton;
+	
 	public int power;
 	public double m_deadzoneX;
 	public double m_deadzoneY;
@@ -44,6 +47,9 @@ public class PantherGamepad extends Joystick {
 		scalingY = driveJoystickYScaling;
 		motorDeadZone = driveMotorsDeadZone;
 		power = 1;
+		
+		leftTrigButton = new AxisButton(this, AXIS_TRIGGER_LEFT, LEFT_TRIG_THRESHOLD);
+		rightTrigButton = new AxisButton(this, AXIS_TRIGGER_RIGHT, RIGHT_TRIG_THRESHOLD);
 	}
 	
 	public double getLeftY(){
@@ -181,12 +187,11 @@ public class PantherGamepad extends Joystick {
 	    return new JoystickButton(this, BUTTON_RIGHT_STICK);
 	}
 
-	public boolean leftTrigOverThresh(){
-		return getRawAxis(AXIS_TRIGGER_LEFT) > LEFT_TRIG_THRESHOLD;
+	public AxisButton getLeftTrig(){
+		return leftTrigButton;
 	}
 	
-	public boolean rightTrigOverThresh(){
-		return getRawAxis(AXIS_TRIGGER_RIGHT) > RIGHT_TRIG_THRESHOLD;
+	public AxisButton getRightTrig(){
+		return rightTrigButton;
 	}
-	
 }
