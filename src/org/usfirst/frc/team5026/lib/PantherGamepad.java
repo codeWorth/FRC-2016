@@ -7,17 +7,17 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class PantherGamepad extends Joystick {
 	// Gamepad axis ports
 	private static final int AXIS_LEFT_X = 0;
-	private static final int AXIS_LEFT_Y = 1;
+	private static final int AXIS_LEFT_Y = 5;
 	private static final int AXIS_TRIGGER_LEFT = 2;
 	private static final int AXIS_TRIGGER_RIGHT = 3;
 	private static final int AXIS_RIGHT_X = 4;
-	private static final int AXIS_RIGHT_Y = 5;
+	private static final int AXIS_RIGHT_Y = 1;
 	private static final int AXIS_DPAD = 6;
 
 	// Gamepad buttons
-	private static final int BUTTON_A = 2;
-	private static final int BUTTON_B = 3;
-	private static final int BUTTON_X = 1;
+	private static final int BUTTON_A = 1;
+	private static final int BUTTON_B = 2;
+	private static final int BUTTON_X = 3;
 	private static final int BUTTON_Y = 4;
 	private static final int BUTTON_BUMBPER_LEFT = 5;
 	private static final int BUTTON_BUMPER_RIGHT = 6;
@@ -56,14 +56,16 @@ public class PantherGamepad extends Joystick {
 		
 		leftDPadButton = new AxisButton(this, AXIS_DPAD, -0.5, false);
 		rightDPadButton = new AxisButton(this, AXIS_DPAD, 0.5, true);
+		
+		System.out.println("joystick created");
 	}
 	
 	public double getLeftY(){
-		return getRawAxis(AXIS_LEFT_Y);
+		return -getRawAxis(AXIS_LEFT_Y);
 	}
 	
 	public double getRightY(){
-		return getRawAxis(AXIS_RIGHT_Y);
+		return -getRawAxis(AXIS_RIGHT_Y);
 	}
 
 	public double getLeftYAxis() {
@@ -111,6 +113,8 @@ public class PantherGamepad extends Joystick {
 	 * Returns an object of Button A.
 	 */
 	public JoystickButton getButtonA() {
+		System.out.println("giving button a");
+		
 	    return new JoystickButton(this, BUTTON_A);
 	}
 

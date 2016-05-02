@@ -31,7 +31,7 @@ public class Hardware {
 	public ShooterMotorGroup upperShooterGroup;
 	
 	public Talon intakeMotor;
-	public CANTalon stageTwoMotor;
+	public Talon stageTwoMotor;
 	
 	public Accelerometer roboRIOAccelerometer;
 	public Gyro gyro;
@@ -44,13 +44,12 @@ public class Hardware {
 		shifterSolenoid = new DoubleSolenoid(1, RobotMap.SHIFT_SOLENOID_FORWARD_CHANNEL, RobotMap.SHIFT_SOLENOID_REVERSE_CHANNEL); 
 		shooterSolenoid = new DoubleSolenoid(1, RobotMap.SHOOTER_SOLENOID_FORWARD_CHANNEL, RobotMap.SHOOTER_SOLENOID_REVERSE_CHANNEL);
 		intakeSolenoid = new DoubleSolenoid(1, RobotMap.INTAKE_SOLENOID_FORWARD_CHANNEL, RobotMap.INTAKE_SOLENOID_REVERSE_CHANNEL);
-		compressorSolenoid = new DoubleSolenoid(2, 0, 1);
 		
 		lowerShooterGroup = new ShooterMotorGroup(new CANTalon(RobotMap.LOWER_SHOOTER_MOTOR_1), new CANTalon(RobotMap.LOWER_SHOOTER_MOTOR_2));
 		upperShooterGroup = new ShooterMotorGroup(new CANTalon(RobotMap.UPPER_SHOOTER_MOTOR_1), new CANTalon(RobotMap.UPPER_SHOOTER_MOTOR_2));
 
 		intakeMotor = new Talon(RobotMap.INTAKE_ROLLER_MOTOR);
-		stageTwoMotor = new CANTalon(RobotMap.STAGE_TWO_MOTOR);
+		stageTwoMotor = new Talon(RobotMap.STAGE_TWO_MOTOR);
 
 		roboRIOAccelerometer = new ADXL362(Port.kOnboardCS1, Range.k2G);
 		gyro = new ADXRS450_Gyro(Port.kOnboardCS0);

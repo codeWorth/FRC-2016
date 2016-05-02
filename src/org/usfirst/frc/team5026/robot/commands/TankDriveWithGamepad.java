@@ -1,13 +1,28 @@
 package org.usfirst.frc.team5026.robot.commands;
 
+import java.nio.ByteBuffer;
+
 import org.usfirst.frc.team5026.lib.PantherGamepad;
 import org.usfirst.frc.team5026.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.communication.FRCNetworkCommunicationsLibrary;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- *
+ *byte value = (byte) m_joystickAxes[stick][axis];
+
+    if (value < 0) {
+      return value / 128.0;
+    } else {
+      return value / 127.0;
+    }
+    
+    private short[][] m_joystickAxes = new short[kJoystickPorts][FRCNetworkCommunicationsLibrary.kMaxJoystickAxes];
+    
+    for (byte stick = 0; stick < kJoystickPorts; stick++) {
+      m_joystickAxes[stick] = FRCNetworkCommunicationsLibrary.HALGetJoystickAxes(stick);
+    }
  */
 public class TankDriveWithGamepad extends Command {
 

@@ -2,8 +2,8 @@ package org.usfirst.frc.team5026.robot.subsystems;
 
 import org.usfirst.frc.team5026.robot.Robot;
 
-import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class StageTwo extends Subsystem {
 	
 	private DigitalInput bannerSensor;
-	private CANTalon stageTwoMotor;
+	private Talon stageTwoMotor;
 	
 	public StageTwo() {
 		bannerSensor = Robot.hardware.stageTwoBannerSensor;

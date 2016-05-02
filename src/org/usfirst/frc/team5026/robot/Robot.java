@@ -10,6 +10,7 @@ import org.usfirst.frc.team5026.robot.subsystems.Drive;
 import org.usfirst.frc.team5026.robot.subsystems.IntakeArm;
 import org.usfirst.frc.team5026.robot.subsystems.IntakeMotors;
 import org.usfirst.frc.team5026.robot.subsystems.RotationAlign;
+import org.usfirst.frc.team5026.robot.subsystems.Shifter;
 import org.usfirst.frc.team5026.robot.subsystems.Shooter;
 import org.usfirst.frc.team5026.robot.subsystems.ShooterPistons;
 import org.usfirst.frc.team5026.robot.subsystems.StageTwo;
@@ -44,6 +45,7 @@ public class Robot extends IterativeRobot {
 	public static Shooter shooter;
 	public static ShooterPistons shooterPistons;
 	public static RotationAlign rotate;
+	public static Shifter shifter;
 
     Command autonomousCommand;
     SendableChooser autonomousChooser;
@@ -247,6 +249,7 @@ public class Robot extends IterativeRobot {
 		intakeMotors = new IntakeMotors();
 		stageTwo = new StageTwo();
 		shooter = new Shooter(lookupU, lookupL);
+		shifter = new Shifter(true);
 		shooterPistons = new ShooterPistons();
 		setupTwoGroup(hardware.lowerShooterGroup, true, false);
 		setupTwoGroup(hardware.upperShooterGroup, true, true);
@@ -318,7 +321,7 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
     }
-    
+    	
     /**
      * This function is called periodically during test mode
      */
